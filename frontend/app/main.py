@@ -7,6 +7,7 @@ from st_on_hover_tabs import on_hover_tabs
 from init import *
 from login import *
 from register import *
+from home import *
 import warnings
 # 경고 메시지 무시 설정
 warnings.filterwarnings("ignore", message="I don't know how to infer vegalite type from 'empty'.*")
@@ -39,8 +40,8 @@ def run():
 
     if not session_state_ck():
         initSetting()
+    st.session_state["data"] = pd.read_csv("test.csv",index_col=0)
 
-    st.header("가상화폐 자동매매 플랫폼")
     st.markdown('<style>' + open('../css/style.css').read() + '</style>', unsafe_allow_html=True)
 
 
@@ -48,7 +49,7 @@ def run():
         tabs = on_hover_tabs(tabName=["Home","회원가입","로그인&로그아웃", "모의 매매", "개인정보","데이터 가시화","제어게인 최적화","제어게인 최적화2","제어게인 최적화3"], 
                             iconName=["Home",'Load', 'Scaling', 'Modeling','Plot','Optimization','Optimization2','Optimization3'], default_choice=0)
     if tabs == "Home":
-        pass
+        homePage()
     elif tabs == "회원가입":
         register()
 

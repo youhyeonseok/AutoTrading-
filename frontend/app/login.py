@@ -21,9 +21,9 @@ def login():
     if authentication_status:
         authenticator.logout('Logout', 'main', key='unique_key')
         st.write(f'Welcome *{name}*')
-        st.session_state["id"] = username
-        st.session_state["name"] = name
-        st.session_state["authentication_status"] = authentication_status
+        # st.session_state["id"] = username
+        # st.session_state["name"] = name
+        # st.session_state["authentication_status"] = authentication_status
 
     elif authentication_status is False:
         st.error('Username/password is incorrect')
