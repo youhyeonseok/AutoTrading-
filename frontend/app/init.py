@@ -1,0 +1,2 @@
+def initSetting():
+    pass
